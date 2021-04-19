@@ -1,38 +1,64 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import logo from "../logo.svg";
-import { INCREMENT, DECREMENT } from "../actions/countActions";
+// import logo from "/favicon.ico";
+import { getAppsList } from "../actions/appsList";
+import { getAppsStats } from "../actions/appsStats";
 
-export const home = ({ count, INCREMENT, DECREMENT }) => {
+import styled from "styled-components";
+import AppCardList from "../components/appCardList";
+import HeroSection from "../components/HeroSection";
+import ListPage from "./list";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .right {
+    width: 50%;
+    @media only screen and (max-width: 780px) {
+      width: 100%;
+    }
+  }
+`;
+
+export const Home = ({
+  count,
+  getAppsList,
+  appsList,
+  getAppsStats,
+  appsStats,
+}) => {
+  const [activeApp, setActiveApp] = useState(null);
+
+  useEffect(() => {
+    getAppsList();
+    getAppsStats();
+  }, []);
   return (
-    <div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          {count}
-        </p>
-        <button
-          onClick={() => {
-            DECREMENT();
-          }}
-        >
-          Decrement
-        </button>
-        <button
-          onClick={() => {
-            INCREMENT();
-          }}
-        >
-          Increment
-        </button>
-      </header>
-    </div>
+    <Wrapper>
+      {activeApp == null ? (
+        <>
+          <HeroSection />
+          <div className="right">
+            <AppCardList
+              setActiveApp={setActiveApp}
+              appsList={appsList}
+              appsStats={appsStats}
+            />
+          </div>
+        </>
+      ) : (
+        <ListPage setActiveApp={setActiveApp} activeApp={activeApp} />
+      )}
+    </Wrapper>
   );
 };
 
-const mapStateToProps = (state) => ({ count: state.count });
+const mapStateToProps = (state) => ({
+  appsList: state.appsList,
+  appsStats: state.appsStats,
+});
 
-// const mapDispatchToProps = { INCREMENT, DECREMENT };
+// const mapDispatchToProps = { getAppsList, DECREMENT };
 
-export default connect(mapStateToProps, { INCREMENT, DECREMENT })(home);
+export default connect(mapStateToProps, { getAppsList, getAppsStats })(Home);
