@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   background-color: white;
   margin: 10px 0;
   padding: 25px;
-  // border: 1px solid #f4f1f1;
   .square {
     height: 50px;
     width: 50px;
@@ -62,18 +61,23 @@ const Wrapper = styled.div`
   }
 `;
 
-export default function appCard({handleBack,appInfo}) {
+export default function appCard({ handleBack, appInfo }) {
   return (
     <Wrapper>
       <div className="top">
         <div className="start">
-          <div className="end" onClick={()=>handleBack(null)}>
-            <img src="assets/left-arrow.svg" style={{ width: "25px", cursor:'pointer' }} />
+          <div className="end" onClick={() => handleBack(null)}>
+            <img
+              src="assets/left-arrow.svg"
+              style={{ width: "25px", cursor: "pointer" }}
+            />
           </div>
           <div className="square orange"></div>
           <div className="nameSection">
             <div className="square-heading">{appInfo.appName}</div>
-            <div className="square-subheading grey">{appInfo.publisherName}</div>
+            <div className="square-subheading grey">
+              {appInfo.publisherName}
+            </div>
           </div>
         </div>
       </div>

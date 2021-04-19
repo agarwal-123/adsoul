@@ -9,7 +9,17 @@ export default function Header() {
         display: "flex",
       }}
     >
-      <div style={{margin:30, color:'white', fontSize:18, fontWeight:700, letterSpacing:2}}>ADSOUL</div>
+      <div
+        style={{
+          margin: 30,
+          color: "white",
+          fontSize: 18,
+          fontWeight: 700,
+          letterSpacing: 2,
+        }}
+      >
+        ADSOUL
+      </div>
     </div>
   );
 }

@@ -5,11 +5,6 @@ import StatsTable from "../components/StatsTable";
 import Header from "../components/Header";
 
 export const List = ({ setActiveApp, activeApp, appsStats, appsList }) => {
-  // useEffect(()=>{
-
-  // },[])
-
-  console.log(appsStats);
   return (
     <div style={{ width: "100%" }}>
       <Header />

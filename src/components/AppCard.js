@@ -6,13 +6,12 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: baseline;
   background-color: white;
-  // width: 100%;
   margin: 10px 0;
   padding: 25px;
   @media only screen and (max-width: 410px) {
-    padding:25px 15px;
+    padding: 25px 15px;
   }
-  
+
   border: 1px solid #f4f1f1;
   border-radius: 4px;
   .square {
@@ -101,7 +100,9 @@ export default function appCard({ setActiveApp, appData, stats }) {
     <Wrapper>
       <div className="top">
         <div className="start">
-          <div className={`square color${Math.floor(Math.random()*3)+1}`}></div>
+          <div
+            className={`square color${Math.floor(Math.random() * 3) + 1}`}
+          ></div>
           <div className="nameSection">
             <div className="square-heading tc-1">{appData.appName}</div>
             <div className="square-subheading grey">
