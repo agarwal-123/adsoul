@@ -12,7 +12,8 @@ const Wrapper = styled.div`
     overflow-y: scroll;
     @media only screen and (max-width: 410px) {
       overflow-y: inherit;
-      height: 100%;    }
+      height: 100%;
+    }
   }
   .top-heading {
     margin: 40px 25px 25px;
@@ -23,15 +24,17 @@ const Wrapper = styled.div`
 
 export default function appCardList({ setActiveApp, appsList, appsStats }) {
   const sum = (i) => {
-    let revenue=0,adRequest=0,adResponse=0,impressions=0;
-    appsStats?.[i]?.forEach((ele,i)=>{
-      revenue=revenue+ele['revenue'];
-      adRequest=adRequest+ele['adRequest']
-      adResponse=adResponse+ele['adResponse']
-      impressions=impressions+ele['impressions']
-
-    })
-    return {revenue,adRequest,adResponse,impressions}
+    let revenue = 0,
+      adRequest = 0,
+      adResponse = 0,
+      impressions = 0;
+    appsStats?.[i]?.forEach((ele, i) => {
+      revenue = revenue + ele["revenue"];
+      adRequest = adRequest + ele["adRequest"];
+      adResponse = adResponse + ele["adResponse"];
+      impressions = impressions + ele["impressions"];
+    });
+    return { revenue, adRequest, adResponse, impressions };
   };
   return (
     <Wrapper>
@@ -43,7 +46,7 @@ export default function appCardList({ setActiveApp, appsList, appsStats }) {
               <AppCard
                 setActiveApp={setActiveApp}
                 appData={ele}
-                stats={sum(i+1)}
+                stats={sum(i + 1)}
               />
             </div>
           );

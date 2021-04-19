@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-// import logo from "/favicon.ico";
 import { getAppsList } from "../actions/appsList";
 import { getAppsStats } from "../actions/appsStats";
 
@@ -28,13 +27,14 @@ const Wrapper = styled.div`
 `;
 
 export const Home = ({
-  count,
   getAppsList,
   appsList,
   getAppsStats,
   appsStats,
 }) => {
   const [activeApp, setActiveApp] = useState(null);
+
+  // Show Home screen if no app is clicked, else show the app statistics page
 
   useEffect(() => {
     getAppsList();
@@ -65,6 +65,5 @@ const mapStateToProps = (state) => ({
   appsStats: state.appsStats,
 });
 
-// const mapDispatchToProps = { getAppsList, DECREMENT };
 
 export default connect(mapStateToProps, { getAppsList, getAppsStats })(Home);

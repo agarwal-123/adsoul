@@ -44,7 +44,6 @@ const Wrapper = styled.div`
     margin: 30px 0px;
   }
   .icon {
-    // width: 50%;
     display: flex;
     flex-direction: column;
     color: white;
@@ -71,7 +70,7 @@ export const home = ({ count, INCREMENT, DECREMENT }) => {
               <img src={`/assets/icon1.svg`} style={{ width: 40 }} />
               <div className="icon-text">Fill Rate</div>
             </div>
-            <div className="icon" style={{marginRight:25}}>
+            <div className="icon" style={{ marginRight: 25 }}>
               <img src={`/assets/icon2.svg`} style={{ width: 55 }} />
               <div className="icon-text">Improve CTR</div>
             </div>
