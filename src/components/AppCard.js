@@ -9,6 +9,10 @@ const Wrapper = styled.div`
   // width: 100%;
   margin: 10px 0;
   padding: 25px;
+  @media only screen and (max-width: 410px) {
+    padding:25px 15px;
+  }
+  
   border: 1px solid #f4f1f1;
   border-radius: 4px;
   .square {
@@ -18,13 +22,13 @@ const Wrapper = styled.div`
     margin-right: 15px;
   }
 
-  .orange {
+  .color1 {
     background-color: #ef7854;
   }
-  .blue {
+  .color2 {
     background-color: #7164ff;
   }
-  .green {
+  .color3 {
     background-color: #60c940;
   }
   .top,
@@ -61,6 +65,10 @@ const Wrapper = styled.div`
 
   .square-heading {
     font-size: 22px;
+    align-items: baseline;
+    @media only screen and (max-width: 410px) {
+      font-size: 20px;
+    }
   }
   .square-subheading {
     font-size: 14px;
@@ -93,9 +101,9 @@ export default function appCard({ setActiveApp, appData, stats }) {
     <Wrapper>
       <div className="top">
         <div className="start">
-          <div className="square orange"></div>
+          <div className={`square color${Math.floor(Math.random()*3)+1}`}></div>
           <div className="nameSection">
-            <div className="square-heading">{appData.appName}</div>
+            <div className="square-heading tc-1">{appData.appName}</div>
             <div className="square-subheading grey">
               {appData.publisherName}
             </div>

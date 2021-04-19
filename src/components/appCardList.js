@@ -10,6 +10,9 @@ const Wrapper = styled.div`
     padding: 25px;
     height: 75vh;
     overflow-y: scroll;
+    @media only screen and (max-width: 410px) {
+      overflow-y: inherit;
+      height: 100%;    }
   }
   .top-heading {
     margin: 40px 25px 25px;
