@@ -19,6 +19,12 @@ const Wrapper = styled.div`
       width: 100%;
     }
   }
+  .tc-1 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
 `;
 
 export const Home = ({
